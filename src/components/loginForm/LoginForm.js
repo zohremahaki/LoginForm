@@ -53,52 +53,34 @@ const LoginForm = () => {
     <StyledMain>
       <section>
         <StyledHeading>ورود به حساب کاربری</StyledHeading>
+
         <form onSubmit={loginHandler}>
           <StyledFormGroup>
-            {usernameHasError ? (
-              <StyledLabel htmlFor="username">نام کاربری *</StyledLabel>
-            ) : (
-              <StyledLabel $valid htmlFor="username">
-                نام کاربری *
-              </StyledLabel>
-            )}
+            <StyledLabel $valid={!usernameHasError} htmlFor="username">
+              نام کاربری *
+            </StyledLabel>
             <Styledicon>
               <i class="fa fa-user-o" aria-hidden="true"></i>
             </Styledicon>
-            {usernameHasError ? (
-              <StyledInput
-                type="text"
-                id="username"
-                placeholder="Username"
-                value={enteredUsername}
-                onChange={userNameChangeHandler}
-                onBlur={usernameBlurHandler}
-                required
-              ></StyledInput>
-            ) : (
-              <StyledInput
-                $valid
-                type="text"
-                id="username"
-                placeholder="Username"
-                value={enteredUsername}
-                onChange={userNameChangeHandler}
-                onBlur={usernameBlurHandler}
-                required
-              ></StyledInput>
-            )}
+            <StyledInput
+              $valid={!usernameHasError}
+              type="text"
+              id="username"
+              placeholder="Username"
+              value={enteredUsername}
+              onChange={userNameChangeHandler}
+              onBlur={usernameBlurHandler}
+              required
+            ></StyledInput>
             {usernameHasError && (
               <StyledErrorText>نام کاربری الزامی می باشد</StyledErrorText>
             )}
           </StyledFormGroup>
+
           <StyledFormGroup>
-            {passwordHasError ? (
-              <StyledLabel htmlFor="password">رمز عبور *</StyledLabel>
-            ) : (
-              <StyledLabel $valid htmlFor="password">
-                رمز عبور *
-              </StyledLabel>
-            )}
+            <StyledLabel $valid={!passwordHasError} htmlFor="password">
+              رمز عبور *
+            </StyledLabel>
             <Styledicon href="#">
               {isVisible ? (
                 <i class="fa-regular fa-eye" onClick={toggle}></i>
@@ -110,29 +92,17 @@ const LoginForm = () => {
                 ></i>
               )}
             </Styledicon>
-            {passwordHasError ? (
-              <StyledInput
-                type={!isVisible ? "password" : "text"}
-                id="password"
-                placeholder="Password"
-                value={enteredPassword}
-                onChange={passwordChangeHandler}
-                onBlur={passwordBlurHandler}
-                required
-              ></StyledInput>
-            ) : (
-              <StyledInput
-                $valid
-                type={!isVisible ? "password" : "text"}
-                // type="password"
-                id="password"
-                placeholder="Password"
-                value={enteredPassword}
-                onChange={passwordChangeHandler}
-                onBlur={passwordBlurHandler}
-                required
-              ></StyledInput>
-            )}
+            <StyledInput
+              $valid={!passwordHasError}
+              type={!isVisible ? "password" : "text"}
+              // type="password"
+              id="password"
+              placeholder="Password"
+              value={enteredPassword}
+              onChange={passwordChangeHandler}
+              onBlur={passwordBlurHandler}
+              required
+            ></StyledInput>
             <StyledParent>
               <StyledForgetLink href="#">فراموشی رمز عبور</StyledForgetLink>
               {passwordHasError && (
