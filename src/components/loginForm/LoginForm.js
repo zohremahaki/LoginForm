@@ -112,7 +112,6 @@ const LoginForm = () => {
             </Styledicon>
             {passwordHasError ? (
               <StyledInput
-                // type="password"
                 type={!isVisible ? "password" : "text"}
                 id="password"
                 placeholder="Password"
