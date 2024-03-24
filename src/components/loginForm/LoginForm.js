@@ -1,4 +1,6 @@
+import React, { useState } from "react";
 import useInput from "../hooks/UseInput.js";
+
 import {
   StyledButton,
   StyledFormGroup,
@@ -13,6 +15,10 @@ import {
 } from "./LoginFormStyled.ts";
 
 const LoginForm = () => {
+  const [isVisible, setVisible] = useState(false);
+  const toggle = () => {
+    setVisible(!isVisible);
+  };
   const isNotEmpty = (value) => value.trim() !== "";
   const {
     value: enteredUsername,
@@ -67,6 +73,7 @@ const LoginForm = () => {
                 value={enteredUsername}
                 onChange={userNameChangeHandler}
                 onBlur={usernameBlurHandler}
+                required
               ></StyledInput>
             ) : (
               <StyledInput
@@ -77,6 +84,7 @@ const LoginForm = () => {
                 value={enteredUsername}
                 onChange={userNameChangeHandler}
                 onBlur={usernameBlurHandler}
+                required
               ></StyledInput>
             )}
             {usernameHasError && (
@@ -91,28 +99,39 @@ const LoginForm = () => {
                 رمز عبور *
               </StyledLabel>
             )}
-            <Styledicon>
-              <i class="fa fa-eye-slash" aria-hidden="true"></i>
+            <Styledicon href="#">
+              {isVisible ? (
+                <i class="fa-regular fa-eye" onClick={toggle}></i>
+              ) : (
+                <i
+                  class="fa fa-eye-slash"
+                  aria-hidden="true"
+                  onClick={toggle}
+                ></i>
+              )}
             </Styledicon>
-
             {passwordHasError ? (
               <StyledInput
-                type="password"
+                // type="password"
+                type={!isVisible ? "password" : "text"}
                 id="password"
                 placeholder="Password"
                 value={enteredPassword}
                 onChange={passwordChangeHandler}
                 onBlur={passwordBlurHandler}
+                required
               ></StyledInput>
             ) : (
               <StyledInput
                 $valid
-                type="password"
+                type={!isVisible ? "password" : "text"}
+                // type="password"
                 id="password"
                 placeholder="Password"
                 value={enteredPassword}
                 onChange={passwordChangeHandler}
                 onBlur={passwordBlurHandler}
+                required
               ></StyledInput>
             )}
             <StyledParent>

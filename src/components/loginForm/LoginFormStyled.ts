@@ -11,11 +11,12 @@ export const StyledHeading = styled.h1`
 export const StyledFormGroup = styled.div`
   margin-bottom: 1.2rem;
 `;
-export const Styledicon = styled.span`
+export const Styledicon = styled.a`
   position: fixed !important;
   padding-left: 1rem;
   padding-top: 0.5rem;
   display: inline-block;
+  color: #191919;
 `;
 export const StyledLabel = styled.label<{ $valid?: boolean }>`
   color: ${(props) => (props.$valid ? "" : "#ff0000")};
