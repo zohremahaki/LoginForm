@@ -1,11 +1,18 @@
 import { Fragment } from "react";
+import { Routes, Route } from "react-router-dom";
 
-import LoginForm from "./components/loginForm/LoginForm";
+import Welcome from "./Pages/Welcome";
+import LoginForm from "./Pages/LoginForm";
+import Register from "./Pages/Register";
 
 function App() {
   return (
     <Fragment>
-      <LoginForm />
+      <Routes>
+        <Route path="/" element={<Welcome />} />
+        <Route path="/login" element={<LoginForm />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
     </Fragment>
   );
 }

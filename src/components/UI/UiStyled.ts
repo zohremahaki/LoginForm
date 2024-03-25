@@ -8,9 +8,6 @@ export const StyledMain = styled.main`
 export const StyledHeading = styled.h1`
   margin-bottom: 1.2rem;
 `;
-export const StyledFormGroup = styled.div`
-  margin-bottom: 1.2rem;
-`;
 export const Styledicon = styled.a`
   position: fixed !important;
   padding-left: 1rem;
@@ -68,14 +65,5 @@ export const StyledErrorText = styled.p`
   margin-top: 0.2rem;
   text-align: right;
   margin-right: 0.2rem;
-`;
-export const StyledForgetLink = styled.a`
-  text-decoration: none;
-  color: #666666;
-  display: inline-block;
-  text-align: left;
-`;
-export const StyledParent = styled.div`
-  display: flex;
-  justify-content: space-between;
+  font-size: 0.7rem;
 `;
