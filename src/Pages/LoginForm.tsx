@@ -1,19 +1,24 @@
 import React, { useState } from "react";
-import useInput from "../components/hooks/UseInput.js";
+import useInput from "../components/hooks/UseInput.tsx";
 
 import {
   StyledFormGroup,
   StyledForgetPassword,
   StyledDiv,
-} from "./PagesStyled.ts";
-import Label from "../components/UI/Label.js";
-import Input from "../components/UI/Input.js";
-import Icon from "../components/UI/Icon.js";
-import Button from "../components/UI/Button.js";
-import Layout from "../components/UI/Layout.js";
-import ErrorText from "../components/UI/ErrorText.js";
+} from "./PagesStyled.styled.tsx";
+import Label from "../components/UI/Label.tsx";
+import Input from "../components/UI/Input.tsx";
+import Icons from "../components/UI/Icon/Icons.tsx";
+import Button from "../components/UI/Button.tsx";
+import Layout from "../components/UI/Layout.tsx";
+import ErrorText from "../components/UI/ErrorText.tsx";
+import {
+  EyeOutlined,
+  EyeInvisibleOutlined,
+  UserOutlined,
+} from "@ant-design/icons";
 
-const LoginForm = () => {
+const LoginForm: React.FC = () => {
   const [isVisible, setVisible] = useState(false);
   const toggle = () => {
     setVisible(!isVisible);
@@ -55,9 +60,9 @@ const LoginForm = () => {
           <Label $valid={!usernameHasError} htmlFor="username">
             نام کاربری *
           </Label>
-          <Icon>
-            <i class="fa fa-user-o" aria-hidden="true"></i>
-          </Icon>
+          <Icons>
+            <UserOutlined />
+          </Icons>
           <Input
             $valid={!usernameHasError}
             type="text"
@@ -74,17 +79,17 @@ const LoginForm = () => {
           <Label $valid={!passwordHasError} htmlFor="password">
             رمز عبور *
           </Label>
-          <Icon>
-            {isVisible ? (
-              <i class="fa-regular fa-eye" onClick={toggle}></i>
-            ) : (
-              <i
-                class="fa fa-eye-slash"
-                aria-hidden="true"
-                onClick={toggle}
-              ></i>
-            )}
-          </Icon>
+
+          {isVisible ? (
+            <Icons onClick={toggle}>
+              <EyeOutlined />
+            </Icons>
+          ) : (
+            <Icons onClick={toggle}>
+              <EyeInvisibleOutlined />
+            </Icons>
+          )}
+
           <Input
             $valid={!passwordHasError}
             type={!isVisible ? "password" : "text"}

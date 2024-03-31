@@ -1,4 +1,7 @@
 import styled from "styled-components";
+interface IProps {
+  $valid?: boolean;
+}
 export const StyledMain = styled.main`
   margin: 5rem auto;
   width: 28rem;
@@ -8,14 +11,14 @@ export const StyledMain = styled.main`
 export const StyledHeading = styled.h1`
   margin-bottom: 1.2rem;
 `;
-export const Styledicon = styled.a`
+export const Styledicon = styled.div`
   position: fixed !important;
   padding-left: 1rem;
   padding-top: 0.5rem;
   display: inline-block;
   color: #191919;
 `;
-export const StyledLabel = styled.label<{ $valid?: boolean }>`
+export const StyledLabel = styled.label<IProps>`
   color: ${(props) => (props.$valid ? "" : "#ff0000")};
   display: block;
   margin-bottom: 0.5rem;
@@ -23,7 +26,7 @@ export const StyledLabel = styled.label<{ $valid?: boolean }>`
   margin-right: 0.2rem;
   font-size: 0.8rem;
 `;
-export const StyledInput = styled.input<{ $valid?: boolean }>`
+export const StyledInput = styled.input<IProps>`
   width: 100%;
   display: inline-block;
   margin: auto;
