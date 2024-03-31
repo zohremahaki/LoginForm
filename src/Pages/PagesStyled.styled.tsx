@@ -9,6 +9,7 @@ export const StyledForgetPassword = styled.a`
   color: #666666;
   display: inline-block;
   text-align: left;
+  margin-left: 0;
 `;
 export const StyledDiv = styled.div`
   display: flex;
