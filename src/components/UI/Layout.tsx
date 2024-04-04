@@ -1,6 +1,5 @@
 import React from "react";
-import { StyledMain } from "./UiStyled.styled.tsx";
-import Header from "./Header.tsx";
+import { StyledMain, StyledHeading } from "./UiStyled.styled.tsx";
 
 interface LayoutProbs {
   header: string;
@@ -10,7 +9,7 @@ interface LayoutProbs {
 const Layout: React.FC<LayoutProbs> = (props) => {
   return (
     <StyledMain>
-      <Header>{props.header}</Header>
+      <StyledHeading>{props.header}</StyledHeading>
       <section>{props.children}</section>
     </StyledMain>
   );
