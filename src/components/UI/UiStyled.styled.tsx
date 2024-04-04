@@ -1,7 +1,4 @@
 import styled from "styled-components";
-interface IProps {
-  $valid?: boolean;
-}
 export const StyledMain = styled.main`
   margin: 5rem auto;
   width: 28rem;
@@ -11,36 +8,6 @@ export const StyledMain = styled.main`
 export const StyledHeading = styled.h1`
   margin-bottom: 1.2rem;
 `;
-export const Styledicon = styled.div`
-  position: fixed !important;
-  padding-left: 1rem;
-  padding-top: 0.5rem;
-  display: inline-block;
-  color: #191919;
-`;
-export const StyledLabel = styled.label<IProps>`
-  color: ${(props) => (props.$valid ? "" : "#ff0000")};
-  display: block;
-  margin-bottom: 0.5rem;
-  text-align: right;
-  margin-right: 0.2rem;
-  font-size: 0.8rem;
-`;
-export const StyledInput = styled.input<IProps>`
-  width: 100%;
-  display: inline-block;
-  margin: auto;
-  border-radius: 4px;
-  padding: 0.5rem;
-  border: ${(props) => (props.$valid ? "1px solid #ccc" : "1px solid #ff0000")};
-  text-align: right;
-  background-color: #fff !important;
-  &:focus {
-    outline: none;
-    box-shadow: 0px 0px 3px #ff0000;
-  }
-`;
-
 export const StyledButton = styled.button`
   width: 100%;
   display: block;
@@ -62,11 +29,4 @@ export const StyledButton = styled.button`
     color: #b8b8b8;
     font-weight: bold;
   }
-`;
-export const StyledErrorText = styled.p`
-  color: red;
-  margin-top: 0.2rem;
-  text-align: right;
-  margin-right: 0.2rem;
-  font-size: 0.7rem;
 `;
