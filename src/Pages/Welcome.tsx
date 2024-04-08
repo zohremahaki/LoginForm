@@ -13,6 +13,9 @@ const Welcome: React.FC = () => {
       <Link to="/signup" style={styledLink}>
         <StyledButton>ثبت نام</StyledButton>
       </Link>
+      <Link to="/dashboard" style={styledLink}>
+        <StyledButton>داشبورد</StyledButton>
+      </Link>
     </Layout>
   );
 };

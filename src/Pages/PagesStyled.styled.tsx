@@ -16,7 +16,9 @@ export const StyledForgetPassword = styled.a`
 export const StyledDiv = styled.div`
   display: flex;
   justify-content: space-between;
+  direction: rtl;
 `;
+
 export const Styledicon = styled.div`
   position: fixed !important;
   padding-left: 1rem;
@@ -50,7 +52,6 @@ export const StyledInput = styled.input<IProps>`
 export const StyledErrorText = styled.p`
   color: red;
   margin-top: 0.2rem;
-  text-align: right;
   margin-right: 0.2rem;
   font-size: 0.7rem;
   margin-bottom: 0;
@@ -76,4 +77,51 @@ export const StyledButton = styled.button`
     color: #b8b8b8;
     font-weight: bold;
   }
+`;
+export const StyledHeader = styled.h1`
+  margin: 2rem auto;
+  margin-top: 5rem;
+  text-align: center;
+`;
+
+export const StyledListContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  direction: rtl;
+  align-items: space-between;
+  justify-content: center;
+  width: 100%;
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 0.2rem 2rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding-inline-start: 0px;
+`;
+
+export const StyledListItem = styled.li`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #f5f5f5;
+  }
+`;
+export const StyledListItemUsername = styled.span`
+  font-weight: bold;
+`;
+export const StyledListItemEmail = styled.span`
+  color: #777;
+`;
+export const StyledEmptyList = styled.p`
+  margin: 2rem auto;
+  font-weight: bold;
+  color: #777;
+  border-bottom: 1px solid #ddd;
 `;

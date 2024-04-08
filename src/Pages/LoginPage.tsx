@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import FormWrapper from "../components/UI/FormWrapper.tsx";
 import InputWrapper from "../components/UI/InputWrapper.tsx";
+import { StyledForgetPassword } from "./PagesStyled.styled.tsx";
+
 import {
   EyeOutlined,
   EyeInvisibleOutlined,
@@ -12,10 +14,8 @@ interface FormValue {
   username: string;
   password: string;
 }
-
 const LoginPage: React.FC = () => {
   const [passwordType, setPasswordType] = useState("password");
-
   const {
     register,
     handleSubmit,
@@ -45,7 +45,7 @@ const LoginPage: React.FC = () => {
         errors={errors}
         type="text"
         placeholder="Username"
-        errMessage="نام کاربری را وارد کنید"
+        errMessage="نام کاربری الزامیست"
       />
       <InputWrapper
         label="رمز عبور"
@@ -61,7 +61,10 @@ const LoginPage: React.FC = () => {
         errors={errors}
         type={passwordType}
         placeholder="Password"
-        errMessage="رمز عبور باید حداقل 8 کاراکتر باشد"
+        errMessage="رمز عبورالزامیست"
+        forgetPassword={
+          <StyledForgetPassword href="#">فراموشی رمز عبور</StyledForgetPassword>
+        }
       />
     </FormWrapper>
   );
