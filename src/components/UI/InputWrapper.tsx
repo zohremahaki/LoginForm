@@ -6,7 +6,6 @@ import {
   StyledFormGroup,
   Styledicon,
   StyledDiv,
-  StyledForgetPassword,
 } from "../../Pages/PagesStyled.styled.tsx";
 interface Input {
   label: string;
@@ -17,10 +16,20 @@ interface Input {
   type: string;
   placeholder: string;
   errMessage: string;
+  forgetPassword?: React.ReactNode;
 }
 const InputWrapper: React.FC<Input> = (props) => {
-  const { label, icon, name, register, errors, type, placeholder, errMessage } =
-    props;
+  const {
+    label,
+    icon,
+    name,
+    register,
+    errors,
+    type,
+    placeholder,
+    errMessage,
+    forgetPassword,
+  } = props;
 
   return (
     <StyledFormGroup>
@@ -32,18 +41,14 @@ const InputWrapper: React.FC<Input> = (props) => {
         <StyledInput
           id={name}
           type={type}
-          {...register(name, { required: true, minLength: 8 })}
+          {...register(name, { required: true })}
           $valid={!errors.name}
           placeholder={placeholder}
         />
       </div>
       <StyledDiv>
-        {name === "password" ? (
-          <StyledForgetPassword href="#">فراموشی رمز عبور</StyledForgetPassword>
-        ) : (
-          <div></div>
-        )}
         {errors[name] && <StyledErrorText>{errMessage}</StyledErrorText>}
+        {forgetPassword}
       </StyledDiv>
     </StyledFormGroup>
   );
