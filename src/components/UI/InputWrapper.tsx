@@ -16,7 +16,7 @@ interface Input {
   type: string;
   placeholder: string;
   errMessage: string;
-  forgetPassword?: React.ReactNode;
+  resetPasswordLink?: React.ReactNode;
 }
 const InputWrapper: React.FC<Input> = (props) => {
   const {
@@ -28,7 +28,7 @@ const InputWrapper: React.FC<Input> = (props) => {
     type,
     placeholder,
     errMessage,
-    forgetPassword,
+    resetPasswordLink,
   } = props;
 
   return (
@@ -48,7 +48,7 @@ const InputWrapper: React.FC<Input> = (props) => {
       </div>
       <StyledDiv>
         {errors[name] && <StyledErrorText>{errMessage}</StyledErrorText>}
-        {forgetPassword}
+        {errors[name] && resetPasswordLink}
       </StyledDiv>
     </StyledFormGroup>
   );

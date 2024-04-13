@@ -6,7 +6,7 @@ export const StyledFormGroup = styled.div`
   margin-bottom: 1.2rem;
 `;
 
-export const StyledForgetPassword = styled.a`
+export const StyledResetPasswordLink = styled.a`
   text-decoration: none;
   color: #666666;
   display: inline-block;
