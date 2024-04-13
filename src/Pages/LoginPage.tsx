@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 import FormWrapper from "../components/UI/FormWrapper.tsx";
 import InputWrapper from "../components/UI/InputWrapper.tsx";
-import { StyledForgetPassword } from "./PagesStyled.styled.tsx";
+import { StyledResetPasswordLink } from "./PagesStyled.styled.tsx";
 
 import {
   EyeOutlined,
@@ -25,8 +26,15 @@ const LoginPage: React.FC = () => {
     mode: "onBlur",
   });
 
-  const onSubmit = (data: FormValue) => {
-    console.log(data);
+  const onSubmit = async (data: FormValue) => {
+    axios
+      .get("https://jsonplaceholder.typicode.com/posts/1")
+      .then((response) => {
+        console.log("Posts:", response.data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
     reset();
   };
 
@@ -62,8 +70,10 @@ const LoginPage: React.FC = () => {
         type={passwordType}
         placeholder="Password"
         errMessage="رمز عبورالزامیست"
-        forgetPassword={
-          <StyledForgetPassword href="#">فراموشی رمز عبور</StyledForgetPassword>
+        resetPasswordLink={
+          <StyledResetPasswordLink href="#">
+            فراموشی رمز عبور
+          </StyledResetPasswordLink>
         }
       />
     </FormWrapper>
